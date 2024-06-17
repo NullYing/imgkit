@@ -11,6 +11,7 @@ def from_url(
     cover=None,
     config=None,
     cover_first=None,
+    timeout=None,
 ):
     """
     Convert URL/URLs to IMG file/files
@@ -22,6 +23,7 @@ def from_url(
     :param cover: (optional) string with url/filename with a cover html page
     :param configuration: (optional) instance of imgkit.config.Config()
     :param cover_first: (optional) if True, cover always precedes TOC
+    :param timeout: (optional) int with timeout in seconds
     :return: True when success
     """
     rtn = IMGKit(
@@ -33,7 +35,7 @@ def from_url(
         config=config,
         cover_first=cover_first,
     )
-    return rtn.to_img(output_path)
+    return rtn.to_img(output_path, timeout=timeout)
 
 
 def from_file(
@@ -45,6 +47,7 @@ def from_file(
     css=None,
     config=None,
     cover_first=None,
+    timeout=None,
 ):
     """
     Convert HTML file/files to IMG file/files
@@ -57,6 +60,7 @@ def from_file(
     :param css: style of input
     :param configuration: (optional) instance of imgkit.config.Config()
     :param cover_first: (optional) if True, cover always precedes TOC
+    :param timeout: (optional) int with timeout in seconds
     :return: True when success
     """
     rtn = IMGKit(
@@ -69,7 +73,7 @@ def from_file(
         config=config,
         cover_first=cover_first,
     )
-    return rtn.to_img(output_path)
+    return rtn.to_img(output_path, timeout=timeout)
 
 
 def from_string(
@@ -81,6 +85,7 @@ def from_string(
     css=None,
     config=None,
     cover_first=None,
+    timeout=None,
 ):
     """
     Convert given string/strings to IMG file
@@ -93,6 +98,7 @@ def from_string(
     :param css: style of input
     :param configuration: (optional) instance of imgkit.config.Config()
     :param cover_first: (optional) if True, cover always precedes TOC
+    :param timeout: (optional) int with timeout in seconds
     :return: True when success
     """
     rtn = IMGKit(
@@ -104,6 +110,7 @@ def from_string(
         css=css,
         config=config,
         cover_first=cover_first,
+        timeout=timeout
     )
     return rtn.to_img(output_path)
 

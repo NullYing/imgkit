@@ -213,7 +213,7 @@ class IMGKit:
 
         return found
 
-    def to_img(self, path=None):
+    def to_img(self, path=None, timeout=None):
         """Generate image to path"""
 
         args = self.command(path)
@@ -237,7 +237,7 @@ class IMGKit:
             string = self.source.source.read().encode("utf-8")
         else:
             string = None
-        stdout, stderr = result.communicate(input=string)
+        stdout, stderr = result.communicate(input=string, timeout=timeout)
         stderr = stderr or stdout
         try: 
             stderr = stderr.decode("utf-8") 
