@@ -109,10 +109,9 @@ def from_string(
         cover=cover,
         css=css,
         config=config,
-        cover_first=cover_first,
-        timeout=timeout
+        cover_first=cover_first
     )
-    return rtn.to_img(output_path)
+    return rtn.to_img(output_path, timeout=timeout)
 
 
 def config(**kwargs):
